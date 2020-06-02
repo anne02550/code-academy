@@ -9,8 +9,8 @@ const generateTarget = () =>  {
 };
 
 const compareGuesses = (huGuess, comGuess, targetNum) => {
-    let dis1 = Math.abs(targetNum - huGuess);
-    let dis2 = Math.abs(targetNum - comGuess);
+    let dis1 = getAbsoluteDistance(targetNum, huGuess);
+    let dis2 = getAbsoluteDistance(targetNum, comGuess);
     return dis1 <= dis2;
 };
 
@@ -23,3 +23,8 @@ const updateScore = (winner) => {
 }
 
 const advanceRound = () => currentRoundNumber++;
+
+const getAbsoluteDistance = (target, guess) => {
+    let distance = Math.abs(target - guess);
+    return distance;
+}

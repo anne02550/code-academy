@@ -8,16 +8,19 @@ def flip_coin(guess, bet):
         print("Your bet should be above 0.")
         return 0
  
-    print("Let's start the game! Your guess is: + guess")
+    print("Let's start the game! Your guess is: " + guess)
     num = random.randint(1, 2)
     if num == 1:
-        return "Heads!"
-    return "Tails!"
+        flip = "Heads"
+    else:
+        flip = "Tails"
+
+    print("Coin landed on: " + flip)
 
     if guess == flip:
-        print("You won £" + str(bet))
+        print("You won " + str(bet))
         return bet
-    print("Sorry, you lost £" + str(bet))
+    print("Sorry, you lost " + str(bet))
     return -bet
 
   
@@ -30,15 +33,18 @@ def cho_han(guess, bet):
     dice1 = random.randint(1, 6)
     dice2 = random.randint(1, 6)
     result = dice1 + dice2
+
+    print("Dice landed on {} and {} making a total of {}".format(dice1, dice2, result))
+
     is_even = result % 2 == 0
     if is_even and guess == "Even":
-        print("You won £" + str(bet))
+        print("You won " + str(bet))
         return bet
     elif not is_even and guess == "Odd":
-        print("You won £" + str(bet))
+        print("You won " + str(bet))
         return bet
     else :   
-        print("Sorry, you lost £" + str(bet))
+        print("Sorry, you lost " + str(bet))
         return -bet
 
 #function that simulates two players picking a card randomly from a deck of cards:
@@ -51,11 +57,12 @@ def deck_of_cards(bet):
     card_a = random.choice(cards)
     cards.remove(card_a)
     card_b = random.choice(cards)
+
     if card_a > card_b:
-        print("You won £" + str(bet))
+        print("You won " + str(bet))
         return bet
     if card_a < card_b:
-        print("Sorry, you lost £" + str(bet))
+        print("Sorry, you lost " + str(bet))
         return -bet
     if card_a == card_b:
         print("It is a tie!")
@@ -73,23 +80,35 @@ def roulette(bet, guess):
     is_even = int(number) % 2 == 0
     is_odd = not is_even
     
-    print("The Roulette wheel will land on: " + number)
+    print("The Roulette wheel landed on: " + number)
 
     if number == "00" or number == "0":
-        print("Sorry, you lost £" + str(bet))
+        print("Sorry, you lost " + str(bet))
         return -bet
     if is_even and guess == "Even":
-        print("You won £"  + str(bet))
+        print("You won "  + str(bet))
         return bet
     if is_odd and guess == "Odd":
-        print("You won £"  + str(bet))
+        print("You won "  + str(bet))
         return bet
     if number == guess:
-        print("You won big: £"  + str(bet))
+        print("You won big: "  + str(bet))
         return bet * 36
-    print("Sorry, you lost £" + str(bet))
+    print("Sorry, you lost " + str(bet))
     return -bet    
     
 
+result = flip_coin("Tails", 100)
+print(result)
 
-    
+result = cho_han("Even", 100)
+print(result)
+
+result = deck_of_cards(100)
+print(result)
+
+result = roulette(100, "Even")
+print(result)
+
+result = roulette(100, "5")
+print(result)

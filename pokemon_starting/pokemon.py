@@ -41,7 +41,6 @@ class Pokemon:
 
 
     def attack(self, other_pokemon):
-        #Fire, Water, and Grass.
         if self.is_knocked_out:
             print("{name} pokemon can not attack because it has been knocked out".format(name = self.name))
 
@@ -87,7 +86,9 @@ class Trainer:
 
     def switch_active_pokemon(self, new_active):
         if new_active >= len(self.pokemon) or new_active < 0:
+            print("Invalid index. Can't switch the pokemon.")
             return
+        
 
         selected = self.pokemon[new_active]     
         if selected.is_knocked_out:
@@ -107,6 +108,7 @@ class Trainer:
             print("You don't have any more potions")
 
     def attack_other_trainer(self, other_trainer):
+        print("{trainer} attack {other_trainer}".format(trainer = self.name, other_trainer = other_trainer.name))
         my_pokemon = self.pokemon[self.current_pokemon]
         their_pokemon = other_trainer.pokemon[other_trainer.current_pokemon]
         my_pokemon.attack(their_pokemon)

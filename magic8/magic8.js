@@ -7,36 +7,18 @@ console.log(`My question is: ${userQuestion}`);
 
 const randomNumber = Math.floor(Math.random() * 8);
 
-let eightBall = "";
+const responses = [
+  'It is certain',
+  'It is decidedly so',
+  'Reply hazy try again',
+  'Cannot predict now',
+  "Don't count on it",
+  'My sources say no',
+  'Outlook not so good',
+  'Signs point to yes'
+]
 
-switch(randomNumber) {
-  case 0: 
-    eightBall = 'It is certain';
-    break;
-  case 1:
-    eightBall = 'It is decidedly so';
-    break;
-  case 2:
-    eightBall = 'Reply hazy try again';
-    break;
-  case 3:
-   eightBall = 'Cannot predict now';
-    break;
-  case 4:
-   eightBall = "Don't count on it";
-    break;
-  case 5:
-   eightBall = 'My sources say no';
-    break;
-  case 6:
-   eightBall = 'Outlook not so good';
-    break;
-  case 7:
-    eightBall = 'Signs point to yes';
-    break;
-  default:
-    eighBall = 'Invalid input.'
-}
+let eightBall = responses[randomNumber];
 
 console.log(eightBall);
 
